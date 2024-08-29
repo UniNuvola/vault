@@ -8,14 +8,14 @@ services:
         #     - 8200:8200
         networks:
             uninuvola:
-                ipv4_address: 10.9.245.2
+                ipv4_address: ${VAULT_IP}
         environment:
             - 'VAULT_LOCAL_CONFIG={"storage": {"file": {"path": "/vault/file"}},
               "listener": [{"tcp": { "address": "0.0.0.0:8200", "tls_disable":
               true}}], "default_lease_ttl": "168h", "max_lease_ttl": "720h",
               "ui": true}'
             # - VAULT_DEV_ROOT_TOKEN_ID=dev-only-token
-            - VAULT_ADDR=http://0.0.0.0:8200
+            - VAULT_ADDR=http://0.0.0.0:${VAULT_PORT}
         image: hashicorp/vault
         command: server
         volumes: 
