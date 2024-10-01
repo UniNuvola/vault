@@ -15,7 +15,7 @@ services:
               true}}], "default_lease_ttl": "168h", "max_lease_ttl": "720h",
               "ui": true}'
             # - VAULT_DEV_ROOT_TOKEN_ID=dev-only-token
-            - VAULT_ADDR=${PUBLIC_URL}
+            - VAULT_ADDR=${VAULT_PUBLIC_URL}
         image: hashicorp/vault
         command: server
         volumes: 
